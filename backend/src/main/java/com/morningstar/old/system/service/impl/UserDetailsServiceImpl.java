@@ -29,7 +29,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        List<String> roleTags = authProperties.getUserRoles().entrySet().stream().filter(entry -> entry.getKey().equals(user.getAccount())).collect(Collectors.toList()).get(0).getValue();
+        List<String> roleTags = authProperties.getUserRoles().entrySet().stream()
+                .filter(entry -> entry.getKey().equals(user.getAccount()))
+                .findFirst()
+                .map(Map.Entry::getValue)
+                .orElse(Collections.emptyList());
         List<String> permissionTags = authProperties.getRolePermissions().entrySet().stream()
                 .filter(entry -> roleTags.contains(entry.getKey()))
                 .flatMap(entry -> entry.getValue().stream()).collect(Collectors.toList());
