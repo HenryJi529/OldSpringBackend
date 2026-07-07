@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.morningstar.old.demo.mapper.JustTestMapper">
+
+
+    <select id="selectRandomN" resultType="com.morningstar.old.demo.pojo.po.JustTest">
+        select *
+        from just_test
+        order by rand()
+        limit #{N}
+    </select>
+</mapper>

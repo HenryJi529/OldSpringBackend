@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+.qoder/
+.idea/
+.cursor/
+__pycache__/

@@ -1,0 +1,1 @@
+insert into just_test (id) values (1);
