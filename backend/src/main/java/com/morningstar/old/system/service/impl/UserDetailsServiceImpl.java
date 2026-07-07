@@ -23,10 +23,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String account) throws UsernameNotFoundException {
-        User user = authProperties.getUsers().stream().filter(item -> item.getAccount().equals(account)).collect(Collectors.toList()).get(0);
-        if (user == null) {
-            throw new UsernameNotFoundException("用户名不存在");
-        }
+        User user = authProperties.getUsers().stream().filter(item -> item.getAccount().equals(account)).findFirst()
+                .orElseThrow(() -> new UsernameNotFoundException("用户名不存在"));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         List<String> roleTags = authProperties.getUserRoles().entrySet().stream()
