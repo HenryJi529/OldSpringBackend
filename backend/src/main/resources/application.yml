@@ -80,7 +80,14 @@ app:
         - "survey_admin"
       "100001":
         - "survey_admin"
-
+  ai:
+    chat:
+      base-url: "https://api.deepseek.com"
+      api-key: "${AI_API_KEY}"
+      model: "deepseek-v4-flash"
+    mcp:
+      # MCP 服务地址：本应用内嵌的 MCP server（/mcp/** 已白名单，自调用不会被认证拦截）
+      url: "http://localhost:8088/mcp/mcp-demo"
 
 springdoc:
   api-docs:

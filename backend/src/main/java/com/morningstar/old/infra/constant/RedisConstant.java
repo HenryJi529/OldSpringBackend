@@ -10,4 +10,9 @@ public class RedisConstant {
      * 认证相关前缀
      */
     public static final String AUTH_LOGIN = "auth:login"; // UserDetails
+
+    /**
+     * AI 会话相关前缀
+     */
+    public static final String AI_CHAT_SESSION = "ai:chat:session"; // ChatMessage 列表
 }
