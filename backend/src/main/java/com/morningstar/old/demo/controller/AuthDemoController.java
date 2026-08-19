@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "示例相关接口定义")
+@Tag(name = "AUTH示例相关接口定义")
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/demo/auth")
 @RequiredArgsConstructor
 @Slf4j
-public class DemoController {
+public class AuthDemoController {
     @GetMapping("/system")
     @PreAuthorize("hasAuthority('sys:user:manage')")
     public String system() {

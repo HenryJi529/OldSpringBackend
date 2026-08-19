@@ -41,13 +41,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/error",
             "/static/**",
             "/resources/**",
-            "/favicon.ico"
+            "/favicon.ico",
+            "/mcp/**",
+            "/demo/mcp"
     );
     /**
      * 白名单接口(GET方法)
      */
     private static final List<String> API_WHITE_LIST_GET_METHOD = Collections.singletonList(
-            "/demo/white"
+            "/demo/auth/white"
     );
     /**
      * 匿名访问接口
